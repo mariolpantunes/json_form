@@ -7,8 +7,11 @@ function handleSubmit(event) {
   const body = JSON.stringify(values);
   console.log(values);
 
-  console.log(event.target);
-  const redirect_url = event.target['redirect'].value; 
+  let redirect_url = null;
+  if ('redirect' in event.target) {
+    redirect_url = event.target['redirect'].value;
+  }
+   
   console.log('redirect url: '+redirect_url);
 
   const xhr = new XMLHttpRequest();
@@ -25,7 +28,7 @@ function handleSubmit(event) {
     if (xhr.readyState == 4) {
       if (parseInt(xhr.status/100) == 2) {
         console.log('OK:'+xhr.status);
-        window.location.assign(redirect_url);
+        if (redirect_url != null) {window.location.assign(redirect_url);}
       } else {
         alert('Error('+xhr.status+'): '+xhr.statusText);
         console.error(xhr.statusText);
