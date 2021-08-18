@@ -3,11 +3,12 @@
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
     <title>Example 01</title>
-    <script type="text/javascript" src="json_form.js" defer></script> 
+    <script type="text/javascript" src="/static/json_form.js" defer></script> 
 </head>
 
 <body>
-    <form id="form" action="get" method="POST">
+    <form id="form" action="api" method="POST">
+        <input id="redirect" type="hidden" value=".">
         <input type="text" name="firstname" value="Karam">
         <input type="text" name="lastname" value="Yousef">
         <input type="submit">
